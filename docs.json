@@ -27,8 +27,11 @@
         ]
       },
       {
-        "tab": "AmbisonicsPy",
-        "icon": "music"
+        "tab": "AmbisonicPy",
+        "icon": "music",
+        "pages": [
+          "ambisonicpy/introduction"
+        ]
       }
     ]
   },
