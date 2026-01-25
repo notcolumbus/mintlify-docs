@@ -13,27 +13,22 @@
       "anchors": [
         {
           "anchor": "Homepage",
-          "icon": "book-open-cover",
+          "icon": "house",
           "href": "https://amans.place"
         }
       ]
     },
     "tabs": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          }
+        "tab": "Home",
+        "icon": "house-blank",
+        "pages": [
+          "home/amans-docs"
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "AmbisonicsPy",
+        "icon": "music",
         "groups": [
           {
             "group": "API documentation",
