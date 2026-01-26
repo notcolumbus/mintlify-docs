@@ -2,3 +2,28 @@
 title: "Introduction"
 ---
 
+**AmbisonicsPy** is a lightweight Python framework for producing spatial audio. It provides a robust set of classes and tools that give users the flexibility to generate ambisonic sound.
+
+## Quickstart
+
+<Steps>
+  <Step title="Install The Package">
+    ```
+    pip install git+https://github.com/notcolumbus/ambisonicPy.git
+    ```
+  </Step>
+  <Step title="Start Creating">
+    ```python
+    from ambisonicPy import Speaker, Soundstage
+    import numpy as np
+    
+    stage = SoundStage(output_format='binaural') 
+    
+    s1 = Speaker("mysong.mp3", order=1, output_format='binaural')
+    s1.add_effect((0, 30), {"type": "move", "start": (0, np.pi/2, 1.0), "end": (np.pi, np.pi/2, 1.0)})
+    
+    stage.add_speaker(s1)
+    stage.render(output_path="output.wav")
+    ```
+  </Step>
+</Steps>

@@ -29,7 +29,8 @@
         "tab": "AmbisonicPy",
         "icon": "music",
         "pages": [
-          "ambisonicpy/introduction"
+          "ambisonicpy/introduction",
+          "ambisonic-py/the-speaker"
         ]
       }
     ]
