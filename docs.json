@@ -8,23 +8,7 @@
     "dark": "#6a96bb"
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Homepage",
-          "icon": "house",
-          "href": "https://amans.place"
-        }
-      ]
-    },
     "tabs": [
-      {
-        "tab": "Home",
-        "icon": "house-blank",
-        "pages": [
-          "home/amans-docs"
-        ]
-      },
       {
         "tab": "AmbisonicPy",
         "icon": "music",
