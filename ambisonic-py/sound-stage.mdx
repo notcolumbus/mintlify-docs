@@ -1,0 +1,62 @@
+---
+title: "The SoundStage"
+description: "The environment that renders your audio sources into a 3D soundscape."
+---
+
+The `SoundStage` is the central manager for your project. It collects `Speaker` instances, handles the Ambisonic encoding (Spherical Harmonics), and renders the final output.
+
+```python
+from ambisonicPy import SoundStage
+myStage = SoundStage(output_format='binaural', ambi_order=1)
+```
+
+### Parameters
+
+<ParamField path="output_format" default="binaural" type="string">
+  The rendering mode.
+
+  - `'binaural'`: Decodes to stereo using HRIRs (Head-Related Impulse Responses) for headphone listening.
+  - `'ambisonic'`: Exports raw B-format/Ambisonic channels.
+</ParamField>
+
+<ParamField path="ambi_order" default="1" type="int">
+  The Ambisonic order. Higher orders provide better spatial resolution but require more processing power.
+</ParamField>
+
+## Methods
+
+### `add_speaker`
+
+Adds a speaker to the scene.
+
+```python
+stage.add_speaker(speaker)
+```
+
+<Check>
+  All speakers added to a stage must share the same sample rate.
+</Check>
+
+### `render`
+
+Processes all effects, encodes spatial data, and writes the final audio file.
+
+```python
+stage.render(output_path="soundstage.wav", sofa_path=None)
+```
+
+<ParamField path="output_path" default="soundstage.wav" type="string">
+  The file path where the rendered audio (`.wav`) will be saved.
+</ParamField>
+
+<ParamField path="sofa_path" default="None" type="string">
+  Optional path to a custom `.sofa` file (HRTF dataset). If `None`, a default dataset is used based on the sample rate.
+</ParamField>
+
+## Example Usage
+
+```python
+stage = SoundStage(output_format='binaural', ambi_order=1)
+stage.add_speaker(my_speaker)
+stage.render("output.wav")
+```

@@ -14,7 +14,8 @@
         "icon": "music",
         "pages": [
           "ambisonicpy/introduction",
-          "ambisonic-py/the-speaker"
+          "ambisonic-py/the-speaker",
+          "ambisonic-py/sound-stage"
         ]
       }
     ]
