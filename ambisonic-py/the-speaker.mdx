@@ -1,9 +1,63 @@
 ---
-title: "The Speaker"
+title: "Speaker"
+description: "The core primitive for handling audio sources and spatial manipulation."
 ---
 
-The Speaker class represents an audio source. It loads an audio file, converts it to mono, and lets you apply time-based spatial effects (azimuth, elevation, distance) for ambisonic or binaural rendering.
+The `Speaker` class represents a single audio source within your soundstage. It handles loading audio files, converting them to mono for processing, and managing time-based spatial effects such as movement, azimuth, elevation, and distance.
 
 ```python
 from ambisonicPy import Speaker
+my_speaker = Speaker(track)
+```
+
+### Parameters
+
+<ParamField path="track" type="string" required>
+  The file path to the audio track. This is loaded via `soundfile`. The class will automatically create a mono mix (`mono_track`) for processing while retaining the raw data.
+</ParamField>
+
+<ParamField path="lp_base" default="10000.0" type="float">
+  The base cutoff frequency (in Hz) for the distance-dependent low-pass filter. This simulates air absorption as the object moves further away.
+</ParamField>
+
+<ParamField path="lp_rolloff" default="1.0" type="float">
+  Controls how aggressively the cutoff frequency drops as distance increases.
+</ParamField>
+
+<ParamField path="distance_rolloff" default="1.0" type="float">
+  A scalar multiplier for distance calculations. Kept primarily for compatibility.
+</ParamField>
+
+## Methods
+
+### `add_effect`
+
+Registers a spatial effect to occur over a specific time range.
+
+```python
+speaker.add_effect(time_range, effect)
+```
+
+<ParamField path="time_range" type="tuple" required>
+  A tuple `(start_seconds, end_seconds)` defining when the effect is active.
+</ParamField>
+
+<ParamField path="effect" type="dict" required>
+  A dictionary defining the effect parameters.
+
+  **Required keys for 'move':**
+
+  - `type`: Can be any effect from Effects.
+  - `start`: Tuple `(azimuth, elevation, distance)`.
+  - `end`: Tuple `(azimuth, elevation, distance)`.
+
+  _Note: Angles are in radians. Elevation is  for "front"._
+</ParamField>
+
+### `clear_effects`
+
+Resets the speaker to its initial state.
+
+```python
+speaker.clear_effects()
 ```
