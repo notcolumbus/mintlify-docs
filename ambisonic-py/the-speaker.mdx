@@ -3,7 +3,7 @@ title: "Speaker"
 description: "The core primitive for handling audio sources and spatial manipulation."
 ---
 
-The `Speaker` class represents a single audio source within your soundstage. It handles loading audio files, converting them to mono for processing, and managing time-based spatial effects such as movement, azimuth, elevation, and distance.
+The `Speaker` class represents a single audio source within your `Soundstage`. It handles loading audio files, converting them to mono for processing, and managing time-based spatial `Effects`.
 
 ```python
 from ambisonicPy import Speaker
@@ -32,7 +32,7 @@ my_speaker = Speaker(track)
 
 ### `add_effect`
 
-Registers a spatial effect to occur over a specific time range.
+Registers a spatial `Effect` to occur over a specific time range.
 
 ```python
 speaker.add_effect(time_range, effect)
@@ -47,7 +47,7 @@ speaker.add_effect(time_range, effect)
 
   **Required keys for 'move':**
 
-  - `type`: Can be any effect from Effects.
+  - `type`: Can be any effect from `Effects`.
   - `start`: Tuple `(azimuth, elevation, distance)`.
   - `end`: Tuple `(azimuth, elevation, distance)`.
 
