@@ -1,0 +1,44 @@
+---
+title: "Effects"
+description: "Control the movement and spatial behavior of your audio sources."
+---
+
+Effects in `ambisonicPy` define how a speaker moves or changes over time. They are applied using the `Speaker.add_effect()` method.
+
+## Structure
+
+An effect is defined as a Python dictionary. It must always include a `type` key, which tells the renderer which handler to use.
+
+```python
+{
+    "type": "move",
+    "start": (0, 1.57, 1.0),
+    "end": (3.14, 1.57, 2.0)
+}
+```
+
+## Available Effects
+
+### Move
+
+The `move` effect linearly interpolates the speaker's position from a starting point to an ending point over the specified time range.
+
+<ParamField path="type" type="string" required>
+  Must be set to `"move"`.
+</ParamField>
+
+<ParamField path="start" type="tuple" required>
+  The starting position: `(azimuth, elevation, distance)`.
+</ParamField>
+
+<ParamField path="end" type="tuple" required>
+  The ending position: `(azimuth, elevation, distance)`.
+</ParamField>
+
+<Note>
+  **Coordinate System**:
+
+  - **Azimuth**: Horizontal angle in radians ($0$ to $2\pi$).
+  - **Elevation**: Vertical angle in radians ($\pi/2$ is directly in front/horizontal).
+  - **Distance**: Scalar value (1.0 is standard distance).
+</Note>

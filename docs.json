@@ -15,7 +15,8 @@
         "pages": [
           "ambisonicpy/introduction",
           "ambisonic-py/the-speaker",
-          "ambisonic-py/sound-stage"
+          "ambisonic-py/sound-stage",
+          "ambisonic-py/effects"
         ]
       }
     ]
