@@ -14,16 +14,15 @@ title: "Introduction"
   </Step>
   <Step title="Start Creating">
     ```python
-    from ambisonicPy import Speaker, Soundstage
+    from ambisonicPy import Speaker, SoundStage
     import numpy as np
     
-    stage = SoundStage(output_format='binaural') 
-    
-    s1 = Speaker("mysong.mp3", order=1, output_format='binaural')
-    s1.add_effect((0, 30), {"type": "move", "start": (0, np.pi/2, 1.0), "end": (np.pi, np.pi/2, 1.0)})
-    
+    stage = SoundStage(output_format='binaural', ambi_order=1)
+    s1 = Speaker("Creep.mp3")
+    s1.add_effect((0, 30), {"type": "move", "start": (np.pi/2, np.pi/2, 1.0), "end": (np.pi * 1.5, np.pi/2, 1.0)})
     stage.add_speaker(s1)
     stage.render(output_path="output.wav")
+    
     ```
   </Step>
 </Steps>
